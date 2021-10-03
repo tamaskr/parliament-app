@@ -30,6 +30,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:gravity="center_vertical"
                 android:orientation="vertical">
 
                 <TextView
@@ -37,18 +38,17 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="30dp"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical|top"
                     android:text="@string/name"
                     android:textColor="@android:color/black"
-                    android:textSize="18sp" />
+                    android:textSize="24sp" />
 
                 <TextView
                     android:id="@+id/memberOrMinister"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical|bottom"
                     android:text="@string/minister_member"
                     android:textColor="@android:color/black"
                     android:textSize="14sp" />

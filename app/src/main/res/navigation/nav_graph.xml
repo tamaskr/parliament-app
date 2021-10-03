@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/home2"
         android:name="com.tamask.parliamentapp.HomeFragment"
-        android:label="home_fragment"
-        tools:layout="@layout/home_fragment" >
+        android:label="PARLIAMENT APP"
+        tools:layout="@layout/home_fragment">
         <action
             android:id="@+id/action_home2_to_partyListFragment"
             app:destination="@id/partyListFragment" />
@@ -17,8 +17,8 @@
     <fragment
         android:id="@+id/partyListFragment"
         android:name="com.tamask.parliamentapp.partylist.PartyListFragment"
-        android:label="party_list_fragment"
-        tools:layout="@layout/party_list_fragment" >
+        android:label="Party list"
+        tools:layout="@layout/party_list_fragment">
         <action
             android:id="@+id/action_partyListFragment_to_filteredMemberListFragment"
             app:destination="@id/filteredMemberListFragment" />
@@ -29,13 +29,23 @@
     <fragment
         android:id="@+id/filteredMemberListFragment"
         android:name="com.tamask.parliamentapp.filteredmemberlist.FilteredMemberListFragment"
-        android:label="FilteredMemberListFragment" >
+        android:label="Party member list">
         <action
             android:id="@+id/action_filteredMemberListFragment_to_memberDataFragment2"
             app:destination="@id/memberDataFragment2" />
+        <action
+            android:id="@+id/action_filteredMemberListFragment_to_partyListFragment"
+            app:destination="@id/partyListFragment" />
+        <argument
+            android:name="party"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/memberDataFragment2"
         android:name="com.tamask.parliamentapp.memberdata.MemberDataFragment"
-        android:label="MemberDataFragment" />
+        android:label="Member" >
+        <action
+            android:id="@+id/action_memberDataFragment2_to_filteredMemberListFragment"
+            app:destination="@id/filteredMemberListFragment" />
+    </fragment>
 </navigation>

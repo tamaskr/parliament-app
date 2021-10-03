@@ -12,13 +12,13 @@ import kotlinx.coroutines.launch
 
 class PartyListViewModel(application: Application): AndroidViewModel(application){
 
-    private val getAllMembers: LiveData<List<Member>>
+    val getParties: LiveData<List<String>>
     private val repository: MemberRepository
 
     init{
         val memberDao = MemberDatabase.getDatabase(application).memberDAO()
         repository = MemberRepository(memberDao)
-        getAllMembers = repository.getAllMembers()
+        getParties = repository.getParties()
     }
 
     fun addMember(member: Member){
@@ -26,6 +26,5 @@ class PartyListViewModel(application: Application): AndroidViewModel(application
             repository.addMember(member)
         }
     }
-
 
 }
