@@ -3,26 +3,29 @@ package com.tamask.db
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "mps")
-data class Member (
-    @PrimaryKey //@ColumnInfo(name = "personNumber")
-        val personNumber: Int,
-    //@ColumnInfo(name = "seatNumber")
-        val seatNumber: Int,
-    //@ColumnInfo(name = "last")
-        val last: String,
-    //@ColumnInfo(name = "first")
-        val first: String,
-    //@ColumnInfo(name = "party")
-        val party: String,
-    //@ColumnInfo(name = "minister")
-        val minister: Boolean,
-    //@ColumnInfo(name = "picture")
-        val picture: String,
-    //@ColumnInfo(name = "twitter")
-        val twitter: String,
-    //@ColumnInfo(name = "bornYear")
-        val bornYear: Int,
-    //@ColumnInfo(name = "constituency")
-        val constituency: String
+@Entity(tableName = "member_table")
+//@JsonClass(generateAdapter = true)
+data class Member(
+    @PrimaryKey
+    //@Json(name = "personNumber")
+    val personNumber: Int,
+    //@Json(name = "seatNumber")
+    val seatNumber: Int,
+    //@Json(name = "last")
+    val last: String,
+    //@Json(name = "first")
+    val first: String,
+    //@Json(name = "party")
+    val party: String,
+    //@Json(name = "minister")
+    val minister: Boolean,
+    //@Json(name = "picture")
+    val picture: String,
+    //@Json(name = "twitter")
+    val twitter: String,
+    //@Json(name = "bornYear")
+    val bornYear: Int,
+    //@Json(name = "constituency")
+    val constituency: String
 )
+
