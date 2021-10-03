@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">ParliamentApp</string>
+    <string name="welcome">Welcome!</string>
+    <string name="browse_parliament_members_grouped_by">Press the buttons below to
+        browse parliament members grouped by:</string>
+    <string name="parties">PARTIES</string>
+    <string name="constituencies">CONSTITUENCIES</string>
+    <string name="minister_member">Minister/Member</string>
+    <string name="party">Party</string>
+    <string name="name">Name</string>
+    <string name="constituency">Constituency</string>
+    <string name="age">Age</string>
+</resources>

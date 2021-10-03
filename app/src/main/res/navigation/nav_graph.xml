@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/home2">
+
+    <fragment
+        android:id="@+id/home2"
+        android:name="com.tamask.parliamentapp.HomeFragment"
+        android:label="home_fragment"
+        tools:layout="@layout/home_fragment" >
+        <action
+            android:id="@+id/action_home2_to_partyListFragment"
+            app:destination="@id/partyListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/partyListFragment"
+        android:name="com.tamask.parliamentapp.partylist.PartyListFragment"
+        android:label="party_list_fragment"
+        tools:layout="@layout/party_list_fragment" >
+        <action
+            android:id="@+id/action_partyListFragment_to_filteredMemberListFragment"
+            app:destination="@id/filteredMemberListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/filteredMemberListFragment"
+        android:name="com.tamask.parliamentapp.filteredmemberlist.FilteredMemberListFragment"
+        android:label="FilteredMemberListFragment" >
+        <action
+            android:id="@+id/action_filteredMemberListFragment_to_memberDataFragment2"
+            app:destination="@id/memberDataFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/memberDataFragment2"
+        android:name="com.tamask.parliamentapp.memberdata.MemberDataFragment"
+        android:label="MemberDataFragment" />
+</navigation>
