@@ -14,6 +14,7 @@ import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tamask.parliamentapp.R
 import com.tamask.parliamentapp.databinding.FilteredMemberListFragmentBinding
+import com.tamask.parliamentapp.memberdata.MemberDataFragmentDirections
 
 class FilteredMemberListFragment : Fragment() {
 
@@ -51,10 +52,7 @@ class FilteredMemberListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home ->
-                findNavController().navigate(R.id.action_filteredMemberListFragment_to_partyListFragment)
-        }
+        findNavController().navigate(R.id.action_filteredMemberListFragment_to_partyListFragment)
         return true
     }
 

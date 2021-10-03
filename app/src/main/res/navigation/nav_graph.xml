@@ -47,5 +47,8 @@
         <action
             android:id="@+id/action_memberDataFragment2_to_filteredMemberListFragment"
             app:destination="@id/filteredMemberListFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
 </navigation>

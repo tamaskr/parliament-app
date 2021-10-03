@@ -41,7 +41,7 @@ class PartyListAdapter: RecyclerView.Adapter<PartyListAdapter.MyViewHolder>() {
         notifyDataSetChanged()
     }
 
-    private fun checkParty(party: String): String{
+    fun checkParty(party: String): String{
         val partyName = when(party){
             "sd" -> "Social Democratic Party"
             "ps" -> "Finns Party"

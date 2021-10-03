@@ -18,6 +18,9 @@ interface MemberDAO {
     @Query("SELECT * FROM member_table WHERE party LIKE :party")
     fun getPartyMembers(party: String): LiveData<List<Member>>
 
+    @Query("SELECT * FROM member_table WHERE personNumber LIKE :id")
+    fun getMember(id: Int): LiveData<Member>
+
     @Query("SELECT * FROM member_table")
     fun getAllMembers(): LiveData<List<Member>>
 }

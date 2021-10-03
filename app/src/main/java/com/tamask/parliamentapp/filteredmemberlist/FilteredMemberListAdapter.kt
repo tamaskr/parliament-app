@@ -5,9 +5,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.tamask.db.Member
 import com.tamask.parliamentapp.R
+import com.tamask.parliamentapp.partylist.PartyListFragmentDirections
 
 class FilteredMemberListAdapter: RecyclerView.Adapter<FilteredMemberListAdapter.MyViewHolder>() {
 
@@ -28,6 +30,11 @@ class FilteredMemberListAdapter: RecyclerView.Adapter<FilteredMemberListAdapter.
         val currentItem = memberList[position]
         holder.itemView.findViewById<TextView>(R.id.name).text = fullName(currentItem.first, currentItem.last)
         holder.itemView.findViewById<TextView>(R.id.memberOrMinister).text = checkMinister(currentItem.minister)
+        holder.itemView.setOnClickListener {mView ->
+            val direction = FilteredMemberListFragmentDirections
+                .actionFilteredMemberListFragmentToMemberDataFragment2(currentItem.personNumber)
+            mView.findNavController().navigate(direction)
+        }
     }
 
     @SuppressLint("NotifyDataSetChanged")

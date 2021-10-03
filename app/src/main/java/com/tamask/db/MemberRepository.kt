@@ -6,7 +6,7 @@ class MemberRepository(
     private val memberDAO: MemberDAO
 ) {
 
-    fun getAllMembers(): LiveData<List<Member>> = memberDAO.getAllMembers()
+    //fun getAllMembers(): LiveData<List<Member>> = memberDAO.getAllMembers()
     fun getParties(): LiveData<List<String>> = memberDAO.getParties()
 
     fun addMember(member: Member){
@@ -15,5 +15,9 @@ class MemberRepository(
 
     fun getPartyMembers(party: String): LiveData<List<Member>> {
         return memberDAO.getPartyMembers(party)
+    }
+
+    fun getMember(id: Int): LiveData<Member> {
+        return memberDAO.getMember(id)
     }
 }
