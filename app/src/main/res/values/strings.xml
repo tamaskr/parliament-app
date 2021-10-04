@@ -10,5 +10,5 @@
     <string name="name">Name</string>
     <string name="constituency">Constituency</string>
     <string name="age">Age</string>
-    <string name="party_name">Party name</string>
+    <string name="item_name">FILTER</string>
 </resources>

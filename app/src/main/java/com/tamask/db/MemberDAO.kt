@@ -15,8 +15,14 @@ interface MemberDAO {
     @Query("SELECT DISTINCT party FROM member_table ")
     fun getParties(): LiveData<List<String>>
 
+    @Query("SELECT DISTINCT constituency FROM member_table ")
+    fun getConstituencies(): LiveData<List<String>>
+
     @Query("SELECT * FROM member_table WHERE party LIKE :party")
     fun getPartyMembers(party: String): LiveData<List<Member>>
+
+    @Query("SELECT * FROM member_table WHERE constituency LIKE :constituency")
+    fun getConstituencyMembers(constituency: String): LiveData<List<Member>>
 
     @Query("SELECT * FROM member_table WHERE personNumber LIKE :id")
     fun getMember(id: Int): LiveData<Member>

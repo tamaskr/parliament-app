@@ -23,5 +23,9 @@ class HomeFragment : Fragment() {
         getView()?.findViewById<Button>(R.id.party_button)?.setOnClickListener {
             findNavController().navigate(R.id.action_home2_to_partyListFragment)
         }
+
+        getView()?.findViewById<Button>(R.id.const_button)?.setOnClickListener {
+            findNavController().navigate(R.id.action_home2_to_constituencyListFragment)
+        }
     }
 }

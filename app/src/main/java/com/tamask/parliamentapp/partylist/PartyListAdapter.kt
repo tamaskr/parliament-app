@@ -16,7 +16,7 @@ class PartyListAdapter: RecyclerView.Adapter<PartyListAdapter.MyViewHolder>() {
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.party_item,
+        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.filter_item,
         parent, false))
     }
 
@@ -30,7 +30,7 @@ class PartyListAdapter: RecyclerView.Adapter<PartyListAdapter.MyViewHolder>() {
 
         holder.itemView.setOnClickListener {mView ->
             val direction = PartyListFragmentDirections
-                .actionPartyListFragmentToFilteredMemberListFragment(currentItem)
+                .actionPartyListFragmentToFilteredMemberListFragment(currentItem, "unknown")
             mView.findNavController().navigate(direction)
         }
     }

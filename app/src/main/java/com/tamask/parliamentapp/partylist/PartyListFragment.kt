@@ -56,10 +56,7 @@ class PartyListFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when (item.getItemId()) {
-            android.R.id.home ->
-                findNavController().navigate(R.id.action_partyListFragment_to_home2)
-        }
+        findNavController().navigate(R.id.action_partyListFragment_to_home2)
         return true
     }
 
