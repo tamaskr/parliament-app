@@ -15,7 +15,7 @@
             app:destination="@id/partyListFragment" />
         <action
             android:id="@+id/action_home2_to_constituencyListFragment"
-            app:destination="@id/Constituencies" />
+            app:destination="@id/constituencyListFragment" />
     </fragment>
     <fragment
         android:id="@+id/partyListFragment"
@@ -25,9 +25,6 @@
         <action
             android:id="@+id/action_partyListFragment_to_filteredMemberListFragment"
             app:destination="@id/filteredMemberListFragment" />
-        <action
-            android:id="@+id/action_partyListFragment_to_home2"
-            app:destination="@id/home2" />
     </fragment>
     <fragment
         android:id="@+id/filteredMemberListFragment"
@@ -36,15 +33,9 @@
         <action
             android:id="@+id/action_filteredMemberListFragment_to_memberDataFragment2"
             app:destination="@id/memberDataFragment2" />
-        <action
-            android:id="@+id/action_filteredMemberListFragment_to_partyListFragment"
-            app:destination="@id/partyListFragment" />
         <argument
             android:name="party"
             app:argType="string" />
-        <action
-            android:id="@+id/action_filteredMemberListFragment_to_constituencyListFragment"
-            app:destination="@id/Constituencies" />
         <argument
             android:name="constituency"
             app:argType="string" />
@@ -53,20 +44,14 @@
         android:id="@+id/memberDataFragment2"
         android:name="com.tamask.parliamentapp.memberdata.MemberDataFragment"
         android:label="Details">
-        <action
-            android:id="@+id/action_memberDataFragment2_to_filteredMemberListFragment"
-            app:destination="@id/filteredMemberListFragment" />
         <argument
             android:name="id"
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/Constituencies"
+        android:id="@+id/constituencyListFragment"
         android:name="com.tamask.parliamentapp.constituencyList.ConstituencyListFragment"
         android:label="Constituencies">
-        <action
-            android:id="@+id/action_constituencyListFragment_to_home2"
-            app:destination="@id/home2" />
         <action
             android:id="@+id/action_constituencyListFragment_to_filteredMemberListFragment"
             app:destination="@id/filteredMemberListFragment" />

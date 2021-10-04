@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.navigation.fragment.findNavController
+import com.tamask.parliamentapp.databinding.HomeFragmentBinding
 
 class HomeFragment : Fragment() {
 

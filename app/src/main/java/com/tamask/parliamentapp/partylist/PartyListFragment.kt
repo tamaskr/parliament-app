@@ -3,16 +3,12 @@ package com.tamask.parliamentapp.partylist
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tamask.db.Member
-import com.tamask.parliamentapp.R
 import com.tamask.parliamentapp.databinding.PartyListFragmentBinding
 
 class PartyListFragment : Fragment() {
@@ -25,7 +21,6 @@ class PartyListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setHasOptionsMenu(true)
 
         partyListBinding = PartyListFragmentBinding.inflate(inflater, container, false)
         partyListViewModel = ViewModelProvider(this).get(PartyListViewModel::class.java)
@@ -47,17 +42,6 @@ class PartyListFragment : Fragment() {
         partyListViewModel.addMember(Member(51, 753, "Yes", "Seven", "ps", true, "/valami/valami.jpg", "", 1956, "Helsinki"))
         partyListViewModel.addMember(Member(50, 853, "No", "Eight", "kesk", false, "/valami/valami.jpg", "", 1956, "Oulu"))
 
-        val callback = object: OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                findNavController().navigate(R.id.action_partyListFragment_to_home2)
-            }
-        }
         return partyListBinding.root
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().navigate(R.id.action_partyListFragment_to_home2)
-        return true
-    }
-
 }

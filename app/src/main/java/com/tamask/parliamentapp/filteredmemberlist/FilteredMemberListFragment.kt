@@ -3,16 +3,12 @@ package com.tamask.parliamentapp.filteredmemberlist
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.tamask.parliamentapp.R
 import com.tamask.parliamentapp.databinding.FilteredMemberListFragmentBinding
 
 class FilteredMemberListFragment : Fragment() {
@@ -21,13 +17,10 @@ class FilteredMemberListFragment : Fragment() {
     private lateinit var filteredMemberListViewModel: FilteredMemberListViewModel
     private lateinit var filteredMemberListAdapter: FilteredMemberListAdapter
 
-    var isFilteredByParty: Boolean = false
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        setHasOptionsMenu(true)
+    ): View {
 
         val args: FilteredMemberListFragmentArgs by navArgs()
         val party: String = args.party
@@ -44,34 +37,13 @@ class FilteredMemberListFragment : Fragment() {
         if(const == unknown){
             filteredMemberListViewModel.getPartyMembers(party).observe(viewLifecycleOwner, Observer { member ->
                 filteredMemberListAdapter.setData(member)
-                isFilteredByParty = true
             })
         }else if(party == unknown){
             filteredMemberListViewModel.getConstituencyMembers(const).observe(viewLifecycleOwner, Observer { member ->
                 filteredMemberListAdapter.setData(member)
-                isFilteredByParty = false
             })
         }
 
-        val callback = object: OnBackPressedCallback(true){
-            override fun handleOnBackPressed() {
-                if(isFilteredByParty){
-                    findNavController().navigate(R.id.action_filteredMemberListFragment_to_partyListFragment)
-                }else{
-                    findNavController().navigate(R.id.action_filteredMemberListFragment_to_constituencyListFragment)
-                }
-            }
-        }
         return filteredMemberListBinding.root
     }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if(isFilteredByParty){
-            findNavController().navigate(R.id.action_filteredMemberListFragment_to_partyListFragment)
-        }else{
-            findNavController().navigate(R.id.action_filteredMemberListFragment_to_constituencyListFragment)
-        }
-        return true
-    }
-
 }
