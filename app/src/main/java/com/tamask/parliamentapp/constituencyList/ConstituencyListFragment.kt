@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tamask.parliamentapp.databinding.PartyListFragmentBinding
@@ -28,7 +27,7 @@ class ConstituencyListFragment : Fragment() {
         constituencyListBinding.recyclerview.adapter = constituencyListAdapter
         constituencyListBinding.recyclerview.layoutManager = LinearLayoutManager(this.context)
 
-        constituencyListViewModel.getConstituencies.observe(viewLifecycleOwner, Observer { constituencies ->
+        constituencyListViewModel.getConstituencies.observe(viewLifecycleOwner, { constituencies ->
             constituencyListAdapter.setData(constituencies)
         })
 

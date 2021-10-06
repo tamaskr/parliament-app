@@ -2,34 +2,32 @@ package com.tamask.parliamentapp.filteredmemberlist
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.tamask.db.Member
-import com.tamask.parliamentapp.R
-import com.tamask.parliamentapp.partylist.PartyListFragmentDirections
+import com.tamask.parliamentapp.databinding.MemberItemBinding
 
-class FilteredMemberListAdapter: RecyclerView.Adapter<FilteredMemberListAdapter.MyViewHolder>() {
+class FilteredMemberListAdapter: RecyclerView.Adapter<FilteredMemberListAdapter.ViewHolder>() {
 
     private var memberList = emptyList<Member>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){    }
+    inner class ViewHolder(val filteredMemberListAdapterBinding: MemberItemBinding) :
+        RecyclerView.ViewHolder(filteredMemberListAdapterBinding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.member_item,
-        parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = MemberItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return memberList.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = memberList[position]
-        holder.itemView.findViewById<TextView>(R.id.name).text = fullName(currentItem.first, currentItem.last)
-        holder.itemView.findViewById<TextView>(R.id.memberOrMinister).text = checkMinister(currentItem.minister)
+        holder.filteredMemberListAdapterBinding.name.text = fullName(currentItem.first, currentItem.last)
+        holder.filteredMemberListAdapterBinding.memberOrMinister.text = checkMinister(currentItem.minister)
         holder.itemView.setOnClickListener {mView ->
             val direction = FilteredMemberListFragmentDirections
                 .actionFilteredMemberListFragmentToMemberDataFragment2(currentItem.personNumber)
@@ -43,8 +41,8 @@ class FilteredMemberListAdapter: RecyclerView.Adapter<FilteredMemberListAdapter.
         notifyDataSetChanged()
     }
 
-    private fun fullName(first: String, last: String) = "$first $last"
+    fun fullName(first: String, last: String) = "$first $last"
 
-    private fun checkMinister(isMinister: Boolean) = if(isMinister) "Minister" else "Member"
+    fun checkMinister(isMinister: Boolean) = if(isMinister) "Minister" else "Member"
 
 }

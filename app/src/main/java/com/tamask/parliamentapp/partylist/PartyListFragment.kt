@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tamask.db.Member
@@ -15,7 +14,7 @@ class PartyListFragment : Fragment() {
 
     private lateinit var partyListBinding: PartyListFragmentBinding
     private lateinit var partyListViewModel: PartyListViewModel
-    private lateinit var partListAdapter: PartyListAdapter
+    private lateinit var partyListAdapter: PartyListAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -25,12 +24,12 @@ class PartyListFragment : Fragment() {
         partyListBinding = PartyListFragmentBinding.inflate(inflater, container, false)
         partyListViewModel = ViewModelProvider(this).get(PartyListViewModel::class.java)
 
-        partListAdapter = PartyListAdapter()
-        partyListBinding.recyclerview.adapter = partListAdapter
+        partyListAdapter = PartyListAdapter()
+        partyListBinding.recyclerview.adapter = partyListAdapter
         partyListBinding.recyclerview.layoutManager = LinearLayoutManager(this.context)
 
-        partyListViewModel.getParties.observe(viewLifecycleOwner, Observer { parties ->
-            partListAdapter.setData(parties)
+        partyListViewModel.getParties.observe(viewLifecycleOwner, { parties ->
+            partyListAdapter.setData(parties)
         })
 
         partyListViewModel.addMember(Member(54, 53, "Person", "One", "sd", false, "/valami/valami.jpg", "", 1956, "Helsinki"))

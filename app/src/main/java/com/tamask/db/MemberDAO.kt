@@ -12,21 +12,21 @@ interface MemberDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addMember(member: Member)
 
-    @Query("SELECT DISTINCT party FROM member_table ")
+    @Query("SELECT DISTINCT party FROM member_table ORDER BY party ASC")
     fun getParties(): LiveData<List<String>>
 
-    @Query("SELECT DISTINCT constituency FROM member_table ")
+    @Query("SELECT DISTINCT constituency FROM member_table ORDER BY constituency ASC")
     fun getConstituencies(): LiveData<List<String>>
 
-    @Query("SELECT * FROM member_table WHERE party LIKE :party")
+    @Query("SELECT * FROM member_table WHERE party LIKE :party ORDER BY party ASC")
     fun getPartyMembers(party: String): LiveData<List<Member>>
 
-    @Query("SELECT * FROM member_table WHERE constituency LIKE :constituency")
+    @Query("SELECT * FROM member_table WHERE constituency LIKE :constituency ORDER BY first ASC")
     fun getConstituencyMembers(constituency: String): LiveData<List<Member>>
 
     @Query("SELECT * FROM member_table WHERE personNumber LIKE :id")
     fun getMember(id: Int): LiveData<Member>
 
-    @Query("SELECT * FROM member_table")
+    @Query("SELECT * FROM member_table ORDER BY first ASC")
     fun getAllMembers(): LiveData<List<Member>>
 }

@@ -2,31 +2,30 @@ package com.tamask.parliamentapp.constituencyList
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.tamask.parliamentapp.R
+import com.tamask.parliamentapp.databinding.FilterItemBinding
 
-class ConstituencyListAdapter: RecyclerView.Adapter<ConstituencyListAdapter.MyViewHolder>() {
+class ConstituencyListAdapter: RecyclerView.Adapter<ConstituencyListAdapter.ViewHolder>() {
 
     private var constituencyList = emptyList<String>()
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){    }
+    inner class ViewHolder(val constituencyListAdapterBinding: FilterItemBinding) :
+        RecyclerView.ViewHolder(constituencyListAdapterBinding.root)
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        return MyViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.filter_item,
-        parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val binding = FilterItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
         return constituencyList.size
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentItem = constituencyList[position]
-        holder.itemView.findViewById<TextView>(R.id.title).text = currentItem
+        holder.constituencyListAdapterBinding.title.text = currentItem
 
         holder.itemView.setOnClickListener {mView ->
             val direction = ConstituencyListFragmentDirections

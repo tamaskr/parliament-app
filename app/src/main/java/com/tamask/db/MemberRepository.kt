@@ -17,7 +17,7 @@ class MemberRepository(
         return memberDAO.getPartyMembers(party)
     }
 
-    fun getConsituencyMembers(constituency: String): LiveData<List<Member>> {
+    fun getConstituencyMembers(constituency: String): LiveData<List<Member>> {
         return memberDAO.getConstituencyMembers(constituency)
     }
 

@@ -21,7 +21,7 @@ abstract class MemberDatabase: RoomDatabase() {
 
         @Volatile
         private var INSTANCE: MemberDatabase? = null
-        private val LOCK = Any()
+        //private val LOCK = Any()
 
         fun getDatabase(context: Context): MemberDatabase {
             val tempInstance = INSTANCE

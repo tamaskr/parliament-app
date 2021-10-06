@@ -3,13 +3,9 @@ package com.tamask.parliamentapp.filteredmemberlist
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.viewModelScope
 import com.tamask.db.Member
 import com.tamask.db.MemberDatabase
 import com.tamask.db.MemberRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class FilteredMemberListViewModel(application: Application): AndroidViewModel(application) {
 
@@ -26,6 +22,6 @@ class FilteredMemberListViewModel(application: Application): AndroidViewModel(ap
     }
 
     fun getConstituencyMembers(const: String): LiveData<List<Member>>{
-        return repository.getConsituencyMembers(const)
+        return repository.getConstituencyMembers(const)
     }
 }

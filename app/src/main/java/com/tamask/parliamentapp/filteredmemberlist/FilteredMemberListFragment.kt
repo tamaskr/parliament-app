@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -35,11 +34,11 @@ class FilteredMemberListFragment : Fragment() {
         filteredMemberListBinding.recyclerview.layoutManager = LinearLayoutManager(this.context)
 
         if(const == unknown){
-            filteredMemberListViewModel.getPartyMembers(party).observe(viewLifecycleOwner, Observer { member ->
+            filteredMemberListViewModel.getPartyMembers(party).observe(this, { member ->
                 filteredMemberListAdapter.setData(member)
             })
         }else if(party == unknown){
-            filteredMemberListViewModel.getConstituencyMembers(const).observe(viewLifecycleOwner, Observer { member ->
+            filteredMemberListViewModel.getConstituencyMembers(const).observe(this, { member ->
                 filteredMemberListAdapter.setData(member)
             })
         }

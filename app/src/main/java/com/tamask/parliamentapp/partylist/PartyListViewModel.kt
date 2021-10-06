@@ -26,5 +26,4 @@ class PartyListViewModel(application: Application): AndroidViewModel(application
             repository.addMember(member)
         }
     }
-
 }
