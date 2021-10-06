@@ -9,9 +9,9 @@ class MemberRepository(
     fun getParties(): LiveData<List<String>> = memberDAO.getParties()
     fun getConstituencies(): LiveData<List<String>> = memberDAO.getConstituencies()
 
-    fun addMember(member: Member){
-        memberDAO.addMember(member)
-    }
+    //fun addMember(member: Member){
+    //    memberDAO.addMember(member)
+    //}
 
     fun getPartyMembers(party: String): LiveData<List<Member>> {
         return memberDAO.getPartyMembers(party)
@@ -23,5 +23,9 @@ class MemberRepository(
 
     fun getMember(id: Int): LiveData<Member> {
         return memberDAO.getMember(id)
+    }
+
+    fun addAllMembers(members: List<Member>) {
+        return memberDAO.addAllMembers(members)
     }
 }

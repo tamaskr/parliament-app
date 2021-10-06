@@ -2,9 +2,12 @@ package com.tamask.db
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.squareup.moshi.JsonClass
 
-@Entity(tableName = "member_table")
+// data class MemberRecords (val records:List<Member>)
+
 //@JsonClass(generateAdapter = true)
+@Entity(tableName = "member_table")
 data class Member(
     @PrimaryKey
     //@Json(name = "personNumber")
