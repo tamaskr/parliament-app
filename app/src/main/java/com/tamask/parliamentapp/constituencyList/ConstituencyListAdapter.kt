@@ -35,7 +35,7 @@ class ConstituencyListAdapter: RecyclerView.Adapter<ConstituencyListAdapter.View
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(parties: List<String>){
+    fun setData(parties: List<String>) {
         this.constituencyList = parties
         notifyDataSetChanged()
     }

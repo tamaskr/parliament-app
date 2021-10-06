@@ -1,6 +1,5 @@
 package com.tamask.parliamentapp.memberdata
 
-import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,7 +16,6 @@ class MemberDataFragment : Fragment() {
     private lateinit var memberDataViewModel: MemberDataViewModel
     private lateinit var memberDataBinding: MemberDataFragmentBinding
 
-    @SuppressLint("SetTextI18n")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

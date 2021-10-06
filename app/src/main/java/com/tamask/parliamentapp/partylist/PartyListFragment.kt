@@ -32,6 +32,7 @@ class PartyListFragment : Fragment() {
             partyListAdapter.setData(parties)
         })
 
+        /*
         partyListViewModel.addMember(Member(54, 53, "Person", "One", "sd", false, "/valami/valami.jpg", "", 1956, "Helsinki"))
         partyListViewModel.addMember(Member(55, 153, "Hello", "Two", "kok", false, "/valami/valami.jpg", "", 1956, "Helsinki"))
         partyListViewModel.addMember(Member(56, 353, "There", "Three", "sd", true, "/valami/valami.jpg", "", 1956, "Tampere"))
@@ -40,7 +41,7 @@ class PartyListFragment : Fragment() {
         partyListViewModel.addMember(Member(59, 653, "Kenobi", "Six", "kesk", false, "/valami/valami.jpg", "", 1956, "Tampere"))
         partyListViewModel.addMember(Member(51, 753, "Yes", "Seven", "ps", true, "/valami/valami.jpg", "", 1956, "Helsinki"))
         partyListViewModel.addMember(Member(50, 853, "No", "Eight", "kesk", false, "/valami/valami.jpg", "", 1956, "Oulu"))
-
+        */
         return partyListBinding.root
     }
 }

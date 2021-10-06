@@ -9,7 +9,6 @@ import com.tamask.db.MemberRepository
 
 class FilteredMemberListViewModel(application: Application): AndroidViewModel(application) {
 
-    //private lateinit var partyMemberList: LiveData<List<Member>>
     private val repository: MemberRepository
 
     init{

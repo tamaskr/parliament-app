@@ -3,6 +3,7 @@ package com.tamask.parliamentapp.constituencyList
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
+import androidx.lifecycle.Transformations
 import com.tamask.db.MemberDatabase
 import com.tamask.db.MemberRepository
 
@@ -16,5 +17,4 @@ class ConstituencyListViewModel(application: Application): AndroidViewModel(appl
         repository = MemberRepository(memberDao)
         getConstituencies = repository.getConstituencies()
     }
-
 }

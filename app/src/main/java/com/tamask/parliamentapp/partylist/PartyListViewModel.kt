@@ -21,9 +21,9 @@ class PartyListViewModel(application: Application): AndroidViewModel(application
         getParties = repository.getParties()
     }
 
-    fun addMember(member: Member){
-        viewModelScope.launch (Dispatchers.IO){
-            repository.addMember(member)
-        }
-    }
+    //fun addMember(member: Member){
+    //    viewModelScope.launch (Dispatchers.IO){
+    //        repository.addMember(member)
+    //    }
+    //}
 }
