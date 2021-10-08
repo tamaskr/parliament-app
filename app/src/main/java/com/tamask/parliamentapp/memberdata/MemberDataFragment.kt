@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
+import com.bumptech.glide.Glide
 import com.tamask.parliamentapp.databinding.MemberDataFragmentBinding
 import com.tamask.parliamentapp.filteredmemberlist.FilteredMemberListAdapter
 import com.tamask.parliamentapp.partylist.PartyListAdapter
@@ -15,6 +16,7 @@ class MemberDataFragment : Fragment() {
 
     private lateinit var memberDataViewModel: MemberDataViewModel
     private lateinit var memberDataBinding: MemberDataFragmentBinding
+    private val BASE_URL = "https://avoindata.eduskunta.fi/"
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +35,11 @@ class MemberDataFragment : Fragment() {
             memberDataBinding.party.text = PartyListAdapter().checkParty(member.party)
             memberDataBinding.minister.text = FilteredMemberListAdapter().checkMinister(member.minister)
             memberDataBinding.age.text = checkAge(member.bornYear)
+
+            Glide.with(this)
+                .asBitmap()
+                .load(BASE_URL + member.picture)
+                .into(memberDataBinding.image)
         })
 
         return memberDataBinding.root
