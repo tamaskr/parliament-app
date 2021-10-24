@@ -7,6 +7,7 @@
     <string name="constituencies">CONSTITUENCIES</string>
     <string name="minister_member">Minister/Member</string>
     <string name="party">Party</string>
+    <string name="party_name">Party name</string>
     <string name="name">Name</string>
     <string name="constituency">Constituency</string>
     <string name="age">Age</string>
