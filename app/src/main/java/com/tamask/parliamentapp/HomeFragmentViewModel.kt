@@ -24,7 +24,8 @@ class HomeFragmentViewModel(application: Application): AndroidViewModel(applicat
 
     init {
         val memberDao = MemberDatabase.getDatabase(application).memberDAO()
-        repository = MemberRepository(memberDao)
+        val database = MemberDatabase.getDatabase(application)
+        repository = MemberRepository(memberDao, database)
         getAllMembers()
     }
 

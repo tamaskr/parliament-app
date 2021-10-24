@@ -14,7 +14,7 @@ class ConstituencyListViewModel(application: Application): AndroidViewModel(appl
 
     init{
         val memberDao = MemberDatabase.getDatabase(application).memberDAO()
-        repository = MemberRepository(memberDao)
+        repository = MemberRepository(memberDao, database = MemberDatabase.getDatabase(application))
         getConstituencies = repository.getConstituencies()
     }
 }

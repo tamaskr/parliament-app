@@ -15,6 +15,9 @@ interface MemberDAO {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     fun addAllMembers(memberList: List<Member>)
 
+    @Query("DELETE FROM member_table")
+    fun deleteAllMembers()
+
     @Query("SELECT * FROM member_table ORDER BY first ASC")
     fun getAllMembers(): LiveData<List<Member>>
 

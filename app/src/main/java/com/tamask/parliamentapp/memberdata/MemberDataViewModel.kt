@@ -14,8 +14,7 @@ class MemberDataViewModel(application: Application): AndroidViewModel(applicatio
 
     init{
         val memberDao = MemberDatabase.getDatabase(application).memberDAO()
-        repository = MemberRepository(memberDao)
-
+        repository = MemberRepository(memberDao, MemberDatabase.getDatabase(application))
     }
 
     fun getMember(id: Int): LiveData<Member> {

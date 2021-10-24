@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import com.bumptech.glide.signature.ObjectKey
 import com.tamask.parliamentapp.databinding.MemberDataFragmentBinding
 import com.tamask.parliamentapp.filteredmemberlist.FilteredMemberListAdapter
 import com.tamask.parliamentapp.partylist.PartyListAdapter

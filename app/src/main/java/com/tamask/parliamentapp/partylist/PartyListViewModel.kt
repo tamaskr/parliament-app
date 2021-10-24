@@ -17,7 +17,7 @@ class PartyListViewModel(application: Application): AndroidViewModel(application
 
     init{
         val memberDao = MemberDatabase.getDatabase(application).memberDAO()
-        repository = MemberRepository(memberDao)
+        repository = MemberRepository(memberDao, database = MemberDatabase.getDatabase(application))
         getParties = repository.getParties()
     }
 

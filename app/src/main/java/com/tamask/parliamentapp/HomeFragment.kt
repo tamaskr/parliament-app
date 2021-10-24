@@ -5,14 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.tamask.db.Member
 import com.tamask.parliamentapp.databinding.HomeFragmentBinding
-import com.tamask.parliamentapp.partylist.PartyListViewModel
-import java.nio.file.Files.size
 
 class HomeFragment : Fragment() {
 

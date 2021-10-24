@@ -13,7 +13,7 @@ class FilteredMemberListViewModel(application: Application): AndroidViewModel(ap
 
     init{
         val memberDao = MemberDatabase.getDatabase(application).memberDAO()
-        repository = MemberRepository(memberDao)
+        repository = MemberRepository(memberDao, database = MemberDatabase.getDatabase(application))
     }
 
     fun getPartyMembers(party: String): LiveData<List<Member>>{
